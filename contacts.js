@@ -11,8 +11,9 @@ const listContacts = async () => {
 };
 
 const getContactById = async (id) => {
+    const contactsId = String(id);
     const contacts = await listContacts();
-    const result = contacts.find(item => item.id === id);
+    const result = contacts.find(item => item.id === contactsId);
     return result || null;
 };
 
@@ -30,8 +31,9 @@ const addContact = async ({ name, email, phone }) => {
 }
 
 const removeContact = async (id) => {
+    const contactsId = String(id);
     const contacts = await listContacts();
-    const index = contacts.findIndex(item => item.id === id);
+    const index = contacts.findIndex(item => item.id === contactsId);
     if (index === -1) {
         return null;
     };
